@@ -1,0 +1,97 @@
+﻿<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>box</title>
+
+    <script src="man.js"></script>
+    <script src="stamina.js"></script>
+
+
+    <style>
+        .container {
+            margin: 0 auto;
+            width :1000px;
+            position :static;
+            text-align: center;
+            overflow: auto;
+        }
+        #game {
+            position: relative;
+            top: 50px;
+            width : 400px;
+            left : 50px;
+        }
+        #help {
+            position : relative;
+            top : -360px;
+            width : 400px;
+            height : 400px;
+            left: 500px;
+            text-align: left;
+        }
+        #actionbar-light-grey
+        {   position : relative;
+            top : -365px;
+            width : 400px;
+            left : 50px;
+            height: 30px;
+            color:white!important;
+            background-color:gray;
+            }
+        #stamina{
+          	position : relative;
+          	top : 0px;
+            left : 0px;
+            height: 30px;
+            background-color: green;
+        }
+        #staamt{
+            position : relative;
+          	top : 0px;
+            width : 400px;
+            left : 0px;
+        }
+        #canvas {
+            border: 1px solid #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GoHomeBulls</h1>
+        <div id="game">
+            <canvas id="canvas" width="400" height="400"></canvas>
+        </div>
+        
+        <div id="help">
+            <h3>HELP：</h3>
+            <p>
+                s - Start the game<br>
+        
+            </p>
+            <p>Press（↑ ← ↓ →）control the bulls</p>
+            <p></p>
+            <h4>Some more instructions</h4>
+            <p>
+                Count of moves:<br>
+                Dinning Dollars<br>
+                r - Restart<br>
+            </p>
+        </div>
+        <div id = "actionbar-light-grey" style="height:24px;width:400px">
+            <div id = "stamina" style="height:24px;width:400px">
+                    <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>            
+            </div>
+
+        </div>
+
+        <script>
+                move();
+        </script>
+        
+    </div>
+
+</body>
+</html>
