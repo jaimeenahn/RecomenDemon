@@ -19,7 +19,6 @@ class Man {
         {
             let x = this.x
             let y = this.y
-            // left block
             let b = map[x][y - 1]
             this.direction = 'left'
         }
