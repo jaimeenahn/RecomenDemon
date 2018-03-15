@@ -2,8 +2,8 @@
 // 1-block 2-wall 3-box 4-ball 5-man 6-box&ball 7-man&ball
 const MAP_CODE = {
     block: 1,
-    wall: 2,
-    box: 3,
+    Ubbuilding: 2, //wall
+    Bull: 3, //box
     ball: 4,
     man: 5,
     boxBall: 6,
