@@ -29,12 +29,12 @@ class SceneMain extends Scene{
             }
         }
     }
-
+    //Intialize the scene
     init (){
-
+        //load map
         log('scene init')
         this.loadLevel(this.level)
-
+        //add actionlistener
         window.addEventListener('keydown', this.keydown)
     }
     loadLevel (level){
@@ -98,7 +98,7 @@ class SceneMain extends Scene{
         let ctx = this.game.context
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         this.drawMap(map)
-        // whether win or lose
+        // determine  win or lose
         if (this.isWin(map)){
             // skip to next stage
             this.paused = true

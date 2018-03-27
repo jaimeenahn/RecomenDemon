@@ -16,12 +16,12 @@ class SceneTitle extends Scene{
             }
         }
     }
-
+    //intialize the map
     init (){
-
+        //add scene
         log('sceneTitle init')
         this.load()
-
+        //add actionlistener
         window.addEventListener('keydown', this.keydown)
     }
     load (){
@@ -41,7 +41,7 @@ class SceneTitle extends Scene{
         context.fillStyle = '#F44336'
         context.textAlign = 'center'
         context.fillText("Press S to start", canvas.width/2, 150)
-        context.fillText("Press E to edit the map！", canvas.width/2, 200)
+
     }
     drawItem (x, y, item){
         let w = CONFIG.blockWidth

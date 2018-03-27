@@ -4,15 +4,15 @@ class SceneEditor extends Scene{
         this.man = new Man('down')
         this.keydown = (event) => {
             let k = event.key
-
+            //save map
             if (k == 'c'){
                 this.saveMap(this.map)
             }
-
+            //reset map
             if (k == 'z'){
                 this.resetMap(this.map)
             }
-
+            //quit editing mode
             if (k == 'x'){
                 this.exit()
             }
@@ -32,12 +32,12 @@ class SceneEditor extends Scene{
             this.changeItem(this.map, x, y)
         }
     }
-
+    //Intialize the scene
     init (){
-
+        //load empty map
         log('scene editor init...')
         this.load()
-
+        //add actionListener
         window.addEventListener('keydown', this.keydown)
         window.addEventListener('click', this.click)
     }
@@ -117,7 +117,7 @@ class SceneEditor extends Scene{
             this.man.x = x
             this.man.y = y
         }
-
+        //If exceed the boundary, change to first one
         if (map[x][y] == MAP_CODE.manBall + 1){
 
             map[x][y] = MAP_CODE.block
