@@ -11,28 +11,29 @@ class Man{
 
         let b = map[x - 1][y]
         switch (b) {
-            // box || box&ball
-            case MAP_CODE.box:
-            case MAP_CODE.boxBall:
-                if (map[x - 2][y] != MAP_CODE.wall && map[x - 2][y] != MAP_CODE.box && map[x - 2][y] != MAP_CODE.boxBall){
+
+            case MAP_CODE.bull:
+            case MAP_CODE.boxedBull:
+                if (map[x - 2][y] != MAP_CODE.wall && map[x - 2][y] != MAP_CODE.bull && map[x - 2][y] != MAP_CODE.boxedBull){
                     this.x--
 
                     if (map[x][y] == MAP_CODE.manBall){
-                        map[x][y] = MAP_CODE.ball
+                        map[x][y] = MAP_CODE.house
                     } else {
                         map[x][y] = MAP_CODE.block
                     }
 
-                    if (map[x - 1][y] == MAP_CODE.ball || map[x - 1][y] == MAP_CODE.boxBall){
+
+                    if (map[x - 1][y] == MAP_CODE.house || map[x - 1][y] == MAP_CODE.boxedBull){
                         map[x - 1][y] = MAP_CODE.manBall
                     } else {
                         map[x - 1][y] = MAP_CODE.man
                     }
 
-                    if (map[x - 2][y] == MAP_CODE.ball){
-                        map[x - 2][y] = MAP_CODE.boxBall
+                    if (map[x - 2][y] == MAP_CODE.house){
+                        map[x - 2][y] = MAP_CODE.boxedBull
                     } else {
-                        map[x - 2][y] = MAP_CODE.box
+                        map[x - 2][y] = MAP_CODE.bull
                     }
                 }
             // wall
@@ -42,17 +43,17 @@ class Man{
             case MAP_CODE.block:
                 this.x--
                 if (map[x][y] == MAP_CODE.manBall){
-                    map[x][y] = MAP_CODE.ball
+                    map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
                 map[x - 1][y] = MAP_CODE.man
                 break;
-            // ball
-            case MAP_CODE.ball:
+            // house
+            case MAP_CODE.house:
                 this.x--
                 if (map[x][y] == MAP_CODE.manBall){
-                    map[x][y] = MAP_CODE.ball    
+                    map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
@@ -62,39 +63,37 @@ class Man{
                 alert('moveUp error!')
                 break;
         }
-        // log(map)
+
     }
     moveDown (map){
         let x = this.x
         let y = this.y
         this.direction = 'down'
-        // low block
+
         let b = map[x + 1][y]
         switch (b) {
-            // box || box&ball
-            case MAP_CODE.box:
-            case MAP_CODE.boxBall:
-                if (map[x + 2][y] != MAP_CODE.wall && map[x + 2][y] != MAP_CODE.box && map[x + 2][y] != MAP_CODE.boxBall){
+
+            case MAP_CODE.bull:
+            case MAP_CODE.boxedBull:
+                if (map[x + 2][y] != MAP_CODE.wall && map[x + 2][y] != MAP_CODE.bull && map[x + 2][y] != MAP_CODE.boxedBull){
                     this.x++
-                    // current standing postion has ball
+
                     if (map[x][y] == MAP_CODE.manBall){
-                        map[x][y] = MAP_CODE.ball
+                        map[x][y] = MAP_CODE.house
                     } else {
                         map[x][y] = MAP_CODE.block
                     }
-                    //  empty block to man
-                    //  emty block is ball
-                    if (map[x + 1][y] == MAP_CODE.ball || map[x + 1][y] == MAP_CODE.boxBall){
+
+                    if (map[x + 1][y] == MAP_CODE.house || map[x + 1][y] == MAP_CODE.boxedBull){
                         map[x + 1][y] = MAP_CODE.manBall
                     } else {
                         map[x + 1][y] = MAP_CODE.man
                     }
-                    // bull's position
-                    //  original is ball
-                    if (map[x + 2][y] == MAP_CODE.ball){
-                        map[x + 2][y] = MAP_CODE.boxBall
+
+                    if (map[x + 2][y] == MAP_CODE.house){
+                        map[x + 2][y] = MAP_CODE.boxedBull
                     } else {
-                        map[x + 2][y] = MAP_CODE.box
+                        map[x + 2][y] = MAP_CODE.bull
                     }
                 }
             // wall
@@ -104,17 +103,17 @@ class Man{
             case MAP_CODE.block:
                 this.x++
                 if (map[x][y] == MAP_CODE.manBall){
-                    map[x][y] = MAP_CODE.ball
+                    map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
                 map[x + 1][y] = MAP_CODE.man
                 break;
-            // ball
-            case MAP_CODE.ball:
+            // house
+            case MAP_CODE.house:
                 this.x++
                 if (map[x][y] == MAP_CODE.manBall){
-                    map[x][y] = MAP_CODE.ball    
+                    map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
@@ -124,38 +123,37 @@ class Man{
                 alert('moveUp error!')
                 break;
         }
-        // log(map)
+
     }
     moveLeft (map){
         let x = this.x
         let y = this.y
-        // left block
+
         let b = map[x][y - 1]
         this.direction = 'left'
         switch (b) {
-            // box || box&ball
-            case MAP_CODE.box:
-            case MAP_CODE.boxBall:
-                if (map[x][y - 2] != MAP_CODE.wall && map[x][y - 2] != MAP_CODE.box && map[x][y - 2] != MAP_CODE.boxBall){
+
+            case MAP_CODE.bull:
+            case MAP_CODE.boxedBull:
+                if (map[x][y - 2] != MAP_CODE.wall && map[x][y - 2] != MAP_CODE.bull && map[x][y - 2] != MAP_CODE.boxedBull){
                     this.y--
-                    // current standing postion has ball
+
                     if (map[x][y] == MAP_CODE.manBall){
-                        map[x][y] = MAP_CODE.ball
+                        map[x][y] = MAP_CODE.house
                     } else {
                         map[x][y] = MAP_CODE.block
                     }
-                    // empty block to man
-                    //  empty block is ball
-                    if (map[x][y - 1] == MAP_CODE.ball || map[x][y - 1] == MAP_CODE.boxBall){
+
+                    if (map[x][y - 1] == MAP_CODE.house || map[x][y - 1] == MAP_CODE.boxedBull){
                         map[x][y - 1] = MAP_CODE.manBall
                     } else {
                         map[x][y - 1] = MAP_CODE.man
                     }
 
-                    if (map[x][y - 2] == MAP_CODE.ball){
-                        map[x][y - 2] = MAP_CODE.boxBall
+                    if (map[x][y - 2] == MAP_CODE.house){
+                        map[x][y - 2] = MAP_CODE.boxedBull
                     } else {
-                        map[x][y - 2] = MAP_CODE.box
+                        map[x][y - 2] = MAP_CODE.bull
                     }
                 }
             // wall
@@ -165,17 +163,17 @@ class Man{
             case MAP_CODE.block:
                 this.y--
                 if (map[x][y] == MAP_CODE.manBall){
-                    map[x][y] = MAP_CODE.ball
+                    map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
                 map[x][y - 1] = MAP_CODE.man
                 break;
-            // ball
-            case MAP_CODE.ball:
+            // house
+            case MAP_CODE.house:
                 this.y--
                 if (map[x][y] == MAP_CODE.manBall){
-                    map[x][y] = MAP_CODE.ball    
+                    map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
@@ -190,32 +188,32 @@ class Man{
     moveRight (map){
         let x = this.x
         let y = this.y
-
+        // 右方格子
         let b = map[x][y + 1]
         this.direction = 'right'
         switch (b) {
-            // box || box&ball
-            case MAP_CODE.box:
-            case MAP_CODE.boxBall:
-                if (map[x][y + 2] != MAP_CODE.wall && map[x][y + 2] != MAP_CODE.box && map[x][y + 2] != MAP_CODE.boxBall){
+
+            case MAP_CODE.bull:
+            case MAP_CODE.boxedBull:
+                if (map[x][y + 2] != MAP_CODE.wall && map[x][y + 2] != MAP_CODE.bull && map[x][y + 2] != MAP_CODE.boxedBull){
                     this.y++
 
                     if (map[x][y] == MAP_CODE.manBall){
-                        map[x][y] = MAP_CODE.ball
+                        map[x][y] = MAP_CODE.house
                     } else {
                         map[x][y] = MAP_CODE.block
                     }
 
-                    if (map[x][y + 1] == MAP_CODE.ball || map[x][y + 1] == MAP_CODE.boxBall){
+                    if (map[x][y + 1] == MAP_CODE.house || map[x][y + 1] == MAP_CODE.boxedBull){
                         map[x][y + 1] = MAP_CODE.manBall
                     } else {
                         map[x][y + 1] = MAP_CODE.man
                     }
 
-                    if (map[x][y + 2] == MAP_CODE.ball){
-                        map[x][y + 2] = MAP_CODE.boxBall
+                    if (map[x][y + 2] == MAP_CODE.house){
+                        map[x][y + 2] = MAP_CODE.boxedBull
                     } else {
-                        map[x][y + 2] = MAP_CODE.box
+                        map[x][y + 2] = MAP_CODE.bull
                     }
                 }
             // wall
@@ -225,17 +223,17 @@ class Man{
             case MAP_CODE.block:
                 this.y++
                 if (map[x][y] == MAP_CODE.manBall){
-                    map[x][y] = MAP_CODE.ball
+                    map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
                 map[x][y + 1] = MAP_CODE.man
                 break;
-            // ball
-            case MAP_CODE.ball:
+            // house
+            case MAP_CODE.house:
                 this.y++
                 if (map[x][y] == MAP_CODE.manBall){
-                    map[x][y] = MAP_CODE.ball    
+                    map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
@@ -245,6 +243,6 @@ class Man{
                 alert('moveUp error!')
                 break;
         }
-        // log(map)
+
     }
 }
