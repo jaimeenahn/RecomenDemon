@@ -19,7 +19,7 @@ function _main(canvasDom, width, height) {
 }
 
 function initImages(images, game) {
-
+    //pre-load all of the image
     
     let loads = []
     let imgNames = Object.keys(images)
@@ -32,9 +32,9 @@ function initImages(images, game) {
             images[name] = img
             loads.push(1)
             if (loads.length == imgNames.length){
-
+                //Images loaded sucessfully 
                 game.images = images
-
+                //Game intialize
                 game.init()
             }
         }

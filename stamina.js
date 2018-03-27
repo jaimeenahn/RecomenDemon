@@ -1,7 +1,7 @@
 function move() {
     var elem = document.getElementById("stamina");   
     var width = 100;
-    var id = setInterval(frame, 300);
+    var id = setInterval(frame, 300); //decrease by second
     function frame() {
       if (width <= 0) {
         clearInterval(id);
@@ -9,7 +9,7 @@ function move() {
         document.getElementById("stamina").innerHTML = "Lack of STAMINA";
         elem.style.width = 100+'%';
         elem.style.backgroundColor = "gray";        
-      } else {
+      } else { //decreasing
         width--; 
         elem.style.width = width + '%'; 
         var num = width;
