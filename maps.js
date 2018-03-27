@@ -1,12 +1,11 @@
 // maps[level][row][col]
-// 1-block 2-wall 3-box 4-ball 5-man 6-box&ball 7-man&ball
 const MAP_CODE = {
-    block: 1,
-    Ubbuilding: 2, //wall
-    Bull: 3, //box
-    ball: 4,
-    man: 5,
-    boxBall: 6,
+    block: 1, // this is background
+    wall: 2, // this is just wall
+    bull: 3, //this is actually the box object which we can push
+    house: 4, // this is the goal object
+    man: 5, // this is the character we use
+    boxedBull: 6, // this is the object after pushing bull to the house
     manBall: 7,
 }
 const CONFIG = {
