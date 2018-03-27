@@ -16,3 +16,12 @@ class Scene {
         }
         return ret
     }
+    init (){}
+    drawMap (){}
+    drawItem (x, y, item){
+        let w = CONFIG.blockWidth
+        let img = this.game.images[item]
+        let context = this.game.context
+        context.drawImage(img, x * w, y * w, w, w)
+    }
+}
