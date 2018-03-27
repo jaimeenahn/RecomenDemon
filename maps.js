@@ -1,8 +1,8 @@
 // maps[level][row][col]
 const MAP_CODE = {
     block: 1, // this is background
-    Ubbuilding: 2, // this is just wall
-    Bull: 3, //this is actually the box object which we can push
+    wall: 2, // this is just wall
+    bull: 3, //this is actually the box object which we can push
     house: 4, // this is the goal object
     man: 5, // this is the character we use
     boxedBull: 6, // this is the object after pushing bull to the house
