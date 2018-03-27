@@ -62,3 +62,6 @@ Basically game should be fun and I want to make every bulls be their home for th
 5. press goHomeBulls.html
 
 6. press "s" to start game
+
+##Youtube Video(alpha release)
+https://youtu.be/1xIZpVAcAiM
