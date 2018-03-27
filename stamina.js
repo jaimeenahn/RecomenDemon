@@ -1,7 +1,7 @@
 function move() {
     var elem = document.getElementById("stamina");   
     var width = 100;
-    var id = setInterval(frame, 120);
+    var id = setInterval(frame, 300);
     function frame() {
       if (width <= 0) {
         clearInterval(id);
