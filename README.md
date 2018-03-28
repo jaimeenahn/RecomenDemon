@@ -55,11 +55,11 @@ Basically game should be fun and I want to make every bulls be their home for th
 
 2. press the "release"
 
-3. click goHomeBulls v0.2.0
+3. click goHomeBulls v0.2.0 
 
 4. unzip the file 
 
-5. press goHomeBulls.html
+5. press goHomeBulls.html (Use Chrome)
 
 6. press "s" to start game
 
