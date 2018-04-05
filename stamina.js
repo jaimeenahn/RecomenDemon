@@ -1,7 +1,8 @@
-function move() {
+var width = 100;
+ 
+ function move() {
     var elem = document.getElementById("stamina");   
-    var width = 100;
-    var id = setInterval(frame, 700); //decrease by second
+    var id = frame(); //decrease by second
     function frame() {
       if (width <= 0) {
         clearInterval(id);
@@ -10,14 +11,17 @@ function move() {
         elem.style.width = 100+'%';
         elem.style.backgroundColor = "gray";        
       } else { //decreasing
-        width--; 
+        width = width - 0.8; 
         elem.style.width = width + '%'; 
         var num = width;
         num = num.toFixed(0)
         document.getElementById("demo").innerHTML = num;
       }
     }
-  }
-  function staminaAlertBox() {
+}
+function resetStamina(){
+  width = 100;
+}
+function staminaAlertBox() {
     alert('You cannot move any more : Lack of Stamina');
   }
