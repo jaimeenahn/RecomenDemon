@@ -22,9 +22,10 @@
         .container {
             margin: 0 auto;
             width :1000px;
+            height : 100%;
             position :static;
             text-align: center;
-            overflow: auto;
+            overflow: hidden;
         }
         #game {
             position: relative;
@@ -78,6 +79,11 @@
             <h3>HELP：</h3>
             <p>
                 s - Start the game<br>
+                r - Reset the game<br>
+                e - Map editing page <br>
+                c - Save the edited map <br>
+                z - Reset the edited map <br>
+                x - Quit map editing page <br>
         
             </p>
             <p>Press（↑ ← ↓ →）control the bulls</p>
@@ -97,7 +103,6 @@
         </div>
 
         <script>
-                move();
                 _main('#canvas', 400, 400)
         </script>
         

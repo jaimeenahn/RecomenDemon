@@ -12,6 +12,8 @@ const CONFIG = {
     blockWidth: 40,
 }
 window.boxMaps = [
+    //paste edited map here
+    
     // 1
     [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1,],
