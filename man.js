@@ -16,6 +16,7 @@ class Man{
             case MAP_CODE.boxedBull:
                 if (map[x - 2][y] != MAP_CODE.wall && map[x - 2][y] != MAP_CODE.bull && map[x - 2][y] != MAP_CODE.boxedBull){
                     this.x--
+
 			    //current standing position is house
                     if (map[x][y] == MAP_CODE.manBall){
                         map[x][y] = MAP_CODE.house
@@ -42,6 +43,7 @@ class Man{
             // block
             case MAP_CODE.block:
                 this.x--
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -52,6 +54,7 @@ class Man{
             // house
             case MAP_CODE.house:
                 this.x--
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -77,6 +80,7 @@ class Man{
             case MAP_CODE.boxedBull:
                 if (map[x + 2][y] != MAP_CODE.wall && map[x + 2][y] != MAP_CODE.bull && map[x + 2][y] != MAP_CODE.boxedBull){
                     this.x++
+                    
 			//current position has house
                     if (map[x][y] == MAP_CODE.manBall){
                         map[x][y] = MAP_CODE.house
@@ -103,6 +107,7 @@ class Man{
             // block
             case MAP_CODE.block:
                 this.x++
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -113,6 +118,7 @@ class Man{
             // house
             case MAP_CODE.house:
                 this.x++
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -138,7 +144,7 @@ class Man{
             case MAP_CODE.boxedBull:
                 if (map[x][y - 2] != MAP_CODE.wall && map[x][y - 2] != MAP_CODE.bull && map[x][y - 2] != MAP_CODE.boxedBull){
                     this.y--
-
+                    
                     if (map[x][y] == MAP_CODE.manBall){
                         map[x][y] = MAP_CODE.house
                     } else {
@@ -163,6 +169,7 @@ class Man{
             // block
             case MAP_CODE.block:
                 this.y--
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -173,6 +180,7 @@ class Man{
             // house
             case MAP_CODE.house:
                 this.y--
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -198,6 +206,7 @@ class Man{
             case MAP_CODE.boxedBull:
                 if (map[x][y + 2] != MAP_CODE.wall && map[x][y + 2] != MAP_CODE.bull && map[x][y + 2] != MAP_CODE.boxedBull){
                     this.y++
+                    
 			//current position has house
                     if (map[x][y] == MAP_CODE.manBall){
                         map[x][y] = MAP_CODE.house
@@ -225,6 +234,7 @@ class Man{
             // block
             case MAP_CODE.block:
                 this.y++
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -235,6 +245,7 @@ class Man{
             // house
             case MAP_CODE.house:
                 this.y++
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
