@@ -41,6 +41,7 @@ class SceneTitle extends Scene{
         context.fillStyle = '#F44336'
         context.textAlign = 'center'
         context.fillText("Press S to start", canvas.width/2, 150)
+        context.fillText("Press E to edit the map", canvas.width/2, 210)
 
     }
     drawItem (x, y, item){
