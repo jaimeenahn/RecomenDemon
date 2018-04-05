@@ -1,15 +1,15 @@
 var width = 100;
- 
+var flag = 0
  function move() {
     var elem = document.getElementById("stamina");   
     var id = frame(); //decrease by second
     function frame() {
       if (width <= 0) {
-        clearInterval(id);
         document.getElementById("stamina").innerHTML = staminaAlertBox();
         document.getElementById("stamina").innerHTML = "Lack of STAMINA";
         elem.style.width = 100+'%';
-        elem.style.backgroundColor = "gray";        
+        elem.style.backgroundColor = "gray";
+        flag = 1;
       } else { //decreasing
         width = width - 0.8; 
         elem.style.width = width + '%'; 
@@ -25,3 +25,14 @@ function resetStamina(){
 function staminaAlertBox() {
     alert('You cannot move any more : Lack of Stamina');
   }
+function checkstamina(){
+  return flag;
+}
+function noKey() {
+  try {event.keyCode = 0; }catch(e) { }
+  event.cancelBubble = true;
+  event.returnValue = false;
+ 
+  return false;
+ }
+ 
