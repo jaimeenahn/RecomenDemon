@@ -102,6 +102,11 @@ class SceneEditor extends Scene{
     }
     saveMap (map){
         log(map)
+        document.write('[')
+        for(let i=0; i < map.length; i++){
+            document.write('['+this.map[i]+'] ,'+'<br />')
+        }
+        document.write('] ,')
     }
     resetMap (map){
         for (let i = 0; i < map.length; i++){

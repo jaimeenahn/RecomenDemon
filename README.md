@@ -46,3 +46,22 @@ Therefore, maintaining stamina is the key.
 Our users are going to use this application to kill their time.
 In other words, as a user, I want to play simple games related to UB so that we can entertain .
 Basically game should be fun and I want to make every bulls be their home for their safety.
+
+***
+
+##How to run?
+
+1. please visit https://github.com/jaimeenahn/goHomeBulls
+
+2. press the "release"
+
+3. click goHomeBulls v0.2.0 
+
+4. unzip the file 
+
+5. press goHomeBulls.html (Use Chrome)
+
+6. press "s" to start game
+
+##Youtube Video(alpha release)
+https://youtu.be/1xIZpVAcAiM

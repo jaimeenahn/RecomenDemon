@@ -4,24 +4,46 @@ class SceneMain extends Scene{
         this.level = 1
         this.man = new Man('down')
         this.paused = false
+        this.count = 0
+        this.flag = 0
+        document.write("<script type='text/javascript' src='stamina.js'><"+"/script>");  
         this.keydown = (event) => {
             let k = event.key
             if (!this.paused){
+                if (this.flag==1)
+                {
+                    while(1)
+                    {
+                        k = 'p'
+                    }
+                }
                 if (k == 'ArrowUp'){
                     this.man.moveUp(this.map)
                     this.refresh(this.map)
+                    this.count++
+                    move();
+                    this.flag = checkstamina();
                 }
                 if (k == 'ArrowDown'){
                     this.man.moveDown(this.map)
                     this.refresh(this.map)
+                    this.count++
+                    move();
+                    this.flag = checkstamina();
                 }
                 if (k == 'ArrowLeft'){
                     this.man.moveLeft(this.map)
                     this.refresh(this.map)
+                    this.count++
+                    move();
+                    this.flag = checkstamina();
                 }
                 if (k == 'ArrowRight'){
                     this.man.moveRight(this.map)
                     this.refresh(this.map)
+                    this.count++
+                    move();
+                    this.flag = checkstamina();
                 }
                 if (k == 'r'){
                     this.loadLevel (this.level)
@@ -133,4 +155,5 @@ class SceneMain extends Scene{
         window.removeEventListener('keydown', this.keydown)
         scene.init()
     }
+
 }
