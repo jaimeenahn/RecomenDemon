@@ -20,7 +20,6 @@
 
 
 
-
     <style>
         .container {
             margin: 0 auto;
@@ -36,7 +35,6 @@
             width : 400px;
             left : 50px;
         }
-
         #help {
             position : relative;
             top : -360px;
@@ -65,14 +63,8 @@
           	position : relative;
           	top : 0px;
             left : 0px;
-            height: 800px;
-            background-color: green;
-        }
-        #HallofFame{
-            position: relative;
-            top: 10px;
-            left: 1000px;
             height: 30px;
+            background-color: green;
         }
         #staamt{
             position : relative;
@@ -88,7 +80,16 @@
 <div>
         <div id="HallofFame">
             <a href="HallOfFame.html">Hall of Fame</a></div>
+
 </div>
+
+<audio id="myAudio" autoplay="autoplay">
+    <source src="Electro.mp3">
+
+
+</audio>
+
+<button type="button" onclick="aud_play_pause()" style="position: absolute; right:0">ON/OFF</button>
     
 <body>
     
@@ -98,10 +99,7 @@
             <canvas id="canvas" width="400" height="400"></canvas>
         </div>
 
-
-
-
-        <div id="help">
+       <div id="help">
             <h3>HELP：</h3>
             <p>
                 s - Start the game<br>
@@ -110,7 +108,6 @@
                 c - Save the edited map <br>
                 z - Reset the edited map <br>
                 x - Quit map editing page <br>
-
             </p>
             <p>Press（↑ ← ↓ →）control the bulls</p>
             <p></p>
@@ -123,20 +120,31 @@
         </div>
         <div id = "actionbar-light-grey" style="height:24px;width:400px">
             <div id = "stamina" style="height:24px;width:400px">
-                    <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>
+                    <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>            
             </div>
 
         </div>
-        <h2>The Button Element</h2>
-        <button type="button" onclick="alert('Hello world!')">Click Me!</button>
 
 
-        </div>
+
+        <script>
+            function aud_play_pause() {
+                var myAudio = document.getElementById("myAudio");
+
+                if (myAudio.paused) {
+                    myAudio.play();
+
+                } else {
+                    myAudio.pause();
+                }
+            }
+
+            _main('#canvas', 400, 400)
+        </script>
+
 
     </div>
-    <script>
-    _main('#canvas', 400, 400)
-    </script>
 
-    </body>
+
+</body>
 </html>
