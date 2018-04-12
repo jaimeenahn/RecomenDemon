@@ -16,6 +16,9 @@
     <script src="scene/scene_title.js"></script>
     <script src="scene/scene_editor.js"></script>
     <script src="stamina.js"></script>
+    <script src="HallofFame.js"></script>
+
+
 
 
     <style>
@@ -33,6 +36,7 @@
             width : 400px;
             left : 50px;
         }
+
         #help {
             position : relative;
             top : -360px;
@@ -61,8 +65,14 @@
           	position : relative;
           	top : 0px;
             left : 0px;
-            height: 30px;
+            height: 800px;
             background-color: green;
+        }
+        #HallofFame{
+            position: relative;
+            top: 10px;
+            left: 1000px;
+            height: 30px;
         }
         #staamt{
             position : relative;
@@ -87,7 +97,10 @@
         <div id="game">
             <canvas id="canvas" width="400" height="400"></canvas>
         </div>
-        
+
+
+
+
         <div id="help">
             <h3>HELP：</h3>
             <p>
@@ -97,7 +110,7 @@
                 c - Save the edited map <br>
                 z - Reset the edited map <br>
                 x - Quit map editing page <br>
-        
+
             </p>
             <p>Press（↑ ← ↓ →）control the bulls</p>
             <p></p>
@@ -110,16 +123,20 @@
         </div>
         <div id = "actionbar-light-grey" style="height:24px;width:400px">
             <div id = "stamina" style="height:24px;width:400px">
-                    <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>            
+                    <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>
             </div>
 
         </div>
+        <h2>The Button Element</h2>
+        <button type="button" onclick="alert('Hello world!')">Click Me!</button>
 
-        <script>
-                _main('#canvas', 400, 400)
-        </script>
-        
+
+        </div>
+
     </div>
+    <script>
+    _main('#canvas', 400, 400)
+    </script>
 
-</body>
+    </body>
 </html>
