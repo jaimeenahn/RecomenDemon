@@ -20,6 +20,7 @@
 
 
 
+
     <style>
         .container {
             margin: 0 auto;
@@ -35,6 +36,7 @@
             width : 400px;
             left : 50px;
         }
+
         #help {
             position : relative;
             top : -360px;
@@ -61,8 +63,8 @@
         }
         #HallofFame{
             position: relative;
-            top: 0px;
-            left: 0px;
+            top: 10px;
+            left: 1000px;
             height: 30px;
         }
         #staamt{
@@ -76,12 +78,20 @@
         }
     </style>
 </head>
+<div>
+    <div id="HallofFame">
+        <a href="HallOfFame.html">Hall of Fame</a></div>
+</div>
+
 <body>
     <div class="container">
         <h1>GoHomeBulls</h1>
         <div id="game">
             <canvas id="canvas" width="400" height="400"></canvas>
         </div>
+
+
+
 
         <div id="help">
             <h3>HELP：</h3>
@@ -111,18 +121,14 @@
         </div>
         <h2>The Button Element</h2>
         <button type="button" onclick="alert('Hello world!')">Click Me!</button>
-        <div id = "halloffame-button " style="height:24px;width:100px">
-            <div id = "HallofFame" style="height:24px;width:100px">
 
-            </div>
 
         </div>
 
-        <script>
-                _main('#canvas', 400, 400)
-        </script>
-        
     </div>
+    <script>
+    _main('#canvas', 400, 400)
+    </script>
 
-</body>
+    </body>
 </html>
