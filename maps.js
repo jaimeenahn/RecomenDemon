@@ -1,5 +1,5 @@
 // maps[level][row][col]
-const MAP_CODE = {
+var MAP_CODE = {
     block: 1, // this is background
     wall: 2, // this is just wall
     bull: 3, //this is actually the box object which we can push
@@ -8,7 +8,7 @@ const MAP_CODE = {
     boxedBull: 6, // this is the object after pushing bull to the house
     manBall: 7,
 }
-const CONFIG = {
+var CONFIG = {
     blockWidth: 40,
 }
 window.boxMaps = [
