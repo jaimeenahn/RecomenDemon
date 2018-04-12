@@ -11,7 +11,7 @@ var flag = 0
         elem.style.backgroundColor = "gray";
         flag = 1;
       } else { //decreasing
-        width = width - 0.8; 
+        width = width - 0.3; 
         elem.style.width = width + '%'; 
         var num = width;
         num = num.toFixed(0)
