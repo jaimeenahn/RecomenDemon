@@ -17,7 +17,6 @@
     <script src="scene/scene_editor.js"></script>
     <script src="stamina.js"></script>
 
-
     <style>
         .container {
             margin: 0 auto;
@@ -47,6 +46,13 @@
              top: 5%;
              left: 85%;
              height: 3px;
+        }
+        #StaminaShop{
+            position: relative;
+            width : 200px;
+            top: 5%;
+            left: 0%;
+            height: 3px;
         }
         #actionbar-light-grey
         {   position : relative;
@@ -78,7 +84,19 @@
 <div>
         <div id="HallofFame">
             <a href="HallOfFame.html">Hall of Fame</a></div>
+
 </div>
+<div>
+    <div id="StaminaShop">
+        <a href="StaminaShop.html">Stamina Shop</a></div>
+</div>
+<audio id="myAudio" autoplay="autoplay">
+    <source src="Electro.mp3">
+
+
+</audio>
+
+<button type="button" onclick="aud_play_pause()" style="position: absolute; right:0">ON/OFF</button>
     
 <body>
     
@@ -89,6 +107,7 @@
         </div>
         
         <div id="help">
+
             <h3>HELP：</h3>
             <p>
                 s - Start the game<br>
@@ -97,7 +116,7 @@
                 c - Save the edited map <br>
                 z - Reset the edited map <br>
                 x - Quit map editing page <br>
-        
+
             </p>
             <p>Press（↑ ← ↓ →）control the bulls</p>
             <p></p>
@@ -114,11 +133,20 @@
             </div>
 
         </div>
-
         <script>
-                _main('#canvas', 400, 400)
+            function aud_play_pause() {
+                var myAudio = document.getElementById("myAudio");
+
+                if (myAudio.paused) {
+                    myAudio.play();
+
+                } else {
+                    myAudio.pause();
+                }
+            }
+
+            _main('#canvas', 400, 400)
         </script>
-        
     </div>
 
 </body>
