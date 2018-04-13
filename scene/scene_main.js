@@ -7,18 +7,12 @@ class SceneMain extends Scene{
         this.count = 0
         this.flag = 0
         this.dinning = 0
+        this.loop = 0
         document.write("<script type='text/javascript' src='stamina.js'><"+"/script>"); 
         var elem = document.getElementById("count");    
         this.keydown = (event) => {
             let k = event.key
             if (!this.paused){
-                if (this.flag==1)
-                {
-                    while(1)
-                    {
-                        k = 'p'
-                    }
-                }
                 if (k == 'ArrowUp'){
                     this.man.moveUp(this.map)
                     this.refresh(this.map)
@@ -53,6 +47,9 @@ class SceneMain extends Scene{
                 }
                 if (k == 'r'){
                     this.loadLevel (this.level)
+                }
+                if(this.man.passout==1 || this.flag==1){
+                    this.paused++
                 }
             }
         }
@@ -118,6 +115,13 @@ class SceneMain extends Scene{
                     this.man.y = j
                     this.drawItem(j, i, 'house')
                     this.drawItem(j, i, this.man.direction)
+                }
+                if (map[i][j] == MAP_CODE.trap){
+                    this.drawItem(j, i, 'trap')
+                }
+                if (map[i][j] == MAP_CODE.mantrap){
+                    this.drawItem(j, i, 'trap')
+                    this.drawItem(j, i, 'dead')
                 }
             }
         }
