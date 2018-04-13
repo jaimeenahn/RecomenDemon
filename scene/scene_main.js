@@ -6,7 +6,9 @@ class SceneMain extends Scene{
         this.paused = false
         this.count = 0
         this.flag = 0
-        document.write("<script type='text/javascript' src='stamina.js'><"+"/script>");  
+        this.dinning = 0
+        document.write("<script type='text/javascript' src='stamina.js'><"+"/script>"); 
+        var elem = document.getElementById("count");    
         this.keydown = (event) => {
             let k = event.key
             if (!this.paused){
@@ -20,7 +22,8 @@ class SceneMain extends Scene{
                 if (k == 'ArrowUp'){
                     this.man.moveUp(this.map)
                     this.refresh(this.map)
-                    this.count++
+                    this.count++;
+                    document.getElementById("count").innerHTML = this.count;
                     move();
                     this.flag = checkstamina();
                 }
@@ -29,6 +32,7 @@ class SceneMain extends Scene{
                     this.refresh(this.map)
                     this.count++
                     move();
+                    document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
                 if (k == 'ArrowLeft'){
@@ -36,6 +40,7 @@ class SceneMain extends Scene{
                     this.refresh(this.map)
                     this.count++
                     move();
+                    document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
                 if (k == 'ArrowRight'){
@@ -43,6 +48,7 @@ class SceneMain extends Scene{
                     this.refresh(this.map)
                     this.count++
                     move();
+                    document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
                 if (k == 'r'){
@@ -60,6 +66,14 @@ class SceneMain extends Scene{
         window.addEventListener('keydown', this.keydown)
     }
     loadLevel (level){
+        if(level == 0)
+        {
+            this.dinning = 0;
+        }
+        else
+        {
+            this.dinning = this.tmp = document.getElementById("count").innerHTML
+        }
         let canvas = this.game.canvas
         this.game.context.clearRect(0, 0, canvas.width, canvas.height)
         level--
@@ -124,6 +138,8 @@ class SceneMain extends Scene{
         if (this.isWin(map)){
             // skip to next stage
             this.paused = true
+            this.tmp = document.getElementById("count").innerHTML
+            document.getElementById("Dinings").innerHTML = (this.count - this.dinning)*25;
             setTimeout(() => {
                 this.nextLevel()
                 this.paused = false

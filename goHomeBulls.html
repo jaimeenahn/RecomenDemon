@@ -1,4 +1,5 @@
-﻿<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +17,22 @@
     <script src="scene/scene_title.js"></script>
     <script src="scene/scene_editor.js"></script>
     <script src="stamina.js"></script>
-    <script src="HallofFame.js"></script>
-
-
+    <script type="text/javascript">
+        function openChild()
+        {
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            window.open("HallOfFame.html",
+                    "childForm", "width=570, height=350, resizable = no, scrollbars = no");    
+        }
+        function openShop()
+        {
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            window.open("StaminaShop.html",
+                    "childForm", "width=570, height=350, resizable = no");    
+        }
+    </script>
 
     <style>
         .container {
@@ -86,7 +100,7 @@
 </head>
 <div>
         <div id="HallofFame">
-            <a href="HallOfFame.html">Hall of Fame</a></div>
+            <input type="button" value="Hall of Fame" onclick="openChild()"><br>
 
 </div>
 <div>
@@ -108,8 +122,9 @@
         <div id="game">
             <canvas id="canvas" width="400" height="400"></canvas>
         </div>
+        
+        <div id="help">
 
-       <div id="help">
             <h3>HELP：</h3>
             <p>
                 s - Start the game<br>
@@ -118,13 +133,14 @@
                 c - Save the edited map <br>
                 z - Reset the edited map <br>
                 x - Quit map editing page <br>
+
             </p>
             <p>Press（↑ ← ↓ →）control the bulls</p>
             <p></p>
             <h4>Some more instructions</h4>
             <p>
-                Count of moves:<br>
-                Dinning Dollars<br>
+                Count of moves : <div id = "count" style = "width:15px">0</div> <br>
+                Dinning Dollars: <div id = "Dinings" style = "width:15px">0</div ><br>
                 r - Restart<br>
             </p>
         </div>
@@ -134,9 +150,6 @@
             </div>
 
         </div>
-
-
-
         <script>
             function aud_play_pause() {
                 var myAudio = document.getElementById("myAudio");
@@ -151,10 +164,7 @@
 
             _main('#canvas', 400, 400)
         </script>
-
-
     </div>
-
 
 </body>
 </html>
