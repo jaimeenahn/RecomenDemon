@@ -210,7 +210,7 @@ class Man{
                 this.passout = 1
                 alert('Dead! X_X')
                 break;
-            default:
+            
             default:
                 alert('moveUp error!')
                 break;
