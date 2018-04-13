@@ -16,7 +16,7 @@ var flag = 0
         var num = width;
         num = num.toFixed(0)
         document.getElementById("demo").innerHTML = num;
-      }
+      } 
     }
 }
 function resetStamina(){
