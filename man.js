@@ -3,6 +3,7 @@ class Man{
         this.direction = 'down'
         this.x = 0
         this.y = 0
+        this.passout = 0;
     }
     moveUp (map){
         let x = this.x
@@ -16,6 +17,7 @@ class Man{
             case MAP_CODE.boxedBull:
                 if (map[x - 2][y] != MAP_CODE.wall && map[x - 2][y] != MAP_CODE.bull && map[x - 2][y] != MAP_CODE.boxedBull){
                     this.x--
+
 			    //current standing position is house
                     if (map[x][y] == MAP_CODE.manBall){
                         map[x][y] = MAP_CODE.house
@@ -32,7 +34,11 @@ class Man{
 			   //bull's position used to be a house
                     if (map[x - 2][y] == MAP_CODE.house){
                         map[x - 2][y] = MAP_CODE.boxedBull
-                    } else {
+                    }else if(map[x-2][y] == MAP_CODE.trap)
+                    {
+                        map[x-1][y] = MAP_CODE.man
+                    } 
+                    else {
                         map[x - 2][y] = MAP_CODE.bull
                     }
                 }
@@ -42,6 +48,7 @@ class Man{
             // block
             case MAP_CODE.block:
                 this.x--
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -52,12 +59,20 @@ class Man{
             // house
             case MAP_CODE.house:
                 this.x--
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
                 map[x - 1][y] = MAP_CODE.manBall
+                break;
+            case MAP_CODE.trap:
+                map[x][y] = MAP_CODE.block
+                map[x-1][y] = MAP_CODE.mantrap
+                this.x--;
+                this.passout = 1
+                alert('Dead! X_X')
                 break;
             default:
                 alert('moveUp error!')
@@ -77,6 +92,7 @@ class Man{
             case MAP_CODE.boxedBull:
                 if (map[x + 2][y] != MAP_CODE.wall && map[x + 2][y] != MAP_CODE.bull && map[x + 2][y] != MAP_CODE.boxedBull){
                     this.x++
+                    
 			//current position has house
                     if (map[x][y] == MAP_CODE.manBall){
                         map[x][y] = MAP_CODE.house
@@ -93,7 +109,11 @@ class Man{
 			//Bull's position used to be a house
                     if (map[x + 2][y] == MAP_CODE.house){
                         map[x + 2][y] = MAP_CODE.boxedBull
-                    } else {
+                    }else if(map[x+2][y] == MAP_CODE.trap)
+                    {
+                        map[x+1][y] = MAP_CODE.man
+                    } 
+                    else {
                         map[x + 2][y] = MAP_CODE.bull
                     }
                 }
@@ -103,6 +123,7 @@ class Man{
             // block
             case MAP_CODE.block:
                 this.x++
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -113,12 +134,20 @@ class Man{
             // house
             case MAP_CODE.house:
                 this.x++
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
                 map[x + 1][y] = MAP_CODE.manBall
+                break;
+            case MAP_CODE.trap:
+                map[x][y] = MAP_CODE.block
+                map[x+1][y] = MAP_CODE.mantrap
+                this.x++;
+                this.passout = 1
+                alert('Dead! X_X')
                 break;
             default:
                 alert('moveUp error!')
@@ -138,7 +167,7 @@ class Man{
             case MAP_CODE.boxedBull:
                 if (map[x][y - 2] != MAP_CODE.wall && map[x][y - 2] != MAP_CODE.bull && map[x][y - 2] != MAP_CODE.boxedBull){
                     this.y--
-
+                    
                     if (map[x][y] == MAP_CODE.manBall){
                         map[x][y] = MAP_CODE.house
                     } else {
@@ -153,7 +182,11 @@ class Man{
 
                     if (map[x][y - 2] == MAP_CODE.house){
                         map[x][y - 2] = MAP_CODE.boxedBull
-                    } else {
+                    }else if(map[x][y - 2] == MAP_CODE.trap)
+                    {
+                        map[x][y-1] = MAP_CODE.man
+                    } 
+                    else {
                         map[x][y - 2] = MAP_CODE.bull
                     }
                 }
@@ -163,6 +196,7 @@ class Man{
             // block
             case MAP_CODE.block:
                 this.y--
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -173,12 +207,20 @@ class Man{
             // house
             case MAP_CODE.house:
                 this.y--
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
                     map[x][y] = MAP_CODE.block
                 }
                 map[x][y - 1] = MAP_CODE.manBall
+                break;
+            case MAP_CODE.trap:
+                map[x][y] = MAP_CODE.block
+                map[x][y-1] = MAP_CODE.mantrap
+                this.y--;
+                this.passout = 1
+                alert('Dead! X_X')
                 break;
             default:
                 alert('moveUp error!')
@@ -198,6 +240,7 @@ class Man{
             case MAP_CODE.boxedBull:
                 if (map[x][y + 2] != MAP_CODE.wall && map[x][y + 2] != MAP_CODE.bull && map[x][y + 2] != MAP_CODE.boxedBull){
                     this.y++
+                    
 			//current position has house
                     if (map[x][y] == MAP_CODE.manBall){
                         map[x][y] = MAP_CODE.house
@@ -215,7 +258,11 @@ class Man{
 			// is used to be a house
                     if (map[x][y + 2] == MAP_CODE.house){
                         map[x][y + 2] = MAP_CODE.boxedBull
-                    } else {
+                    } else if(map[x][y + 2] == MAP_CODE.trap)
+                    {
+                        map[x][y+1] = MAP_CODE.man
+                    }
+                    else{
                         map[x][y + 2] = MAP_CODE.bull
                     }
                 }
@@ -225,6 +272,7 @@ class Man{
             // block
             case MAP_CODE.block:
                 this.y++
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -235,6 +283,7 @@ class Man{
             // house
             case MAP_CODE.house:
                 this.y++
+                
                 if (map[x][y] == MAP_CODE.manBall){
                     map[x][y] = MAP_CODE.house
                 } else {
@@ -242,8 +291,15 @@ class Man{
                 }
                 map[x][y + 1] = MAP_CODE.manBall
                 break;
+            case MAP_CODE.trap:
+                map[x][y] = MAP_CODE.block
+                map[x][y+1] = MAP_CODE.mantrap
+                this.y++;
+                this.passout = 1
+                alert('Dead! X_X')
+                break;
             default:
-                alert('moveUp error!')
+                alert('moveRight error!')
                 break;
         }
 

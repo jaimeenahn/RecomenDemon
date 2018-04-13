@@ -84,6 +84,9 @@ class SceneEditor extends Scene{
                     this.drawItem(j, i, 'house')
                     this.drawItem(j, i, this.man.direction)
                 }
+                if (map[i][j] == MAP_CODE.trap){
+                    this.drawItem(j, i, 'trap')
+                }
             }
         }
     }
@@ -102,6 +105,11 @@ class SceneEditor extends Scene{
     }
     saveMap (map){
         log(map)
+        document.write('[')
+        for(let i=0; i < map.length; i++){
+            document.write('['+this.map[i]+'] ,'+'<br />')
+        }
+        document.write('] ,')
     }
     resetMap (map){
         for (let i = 0; i < map.length; i++){
@@ -118,7 +126,7 @@ class SceneEditor extends Scene{
             this.man.y = y
         }
         //If exceed the boundary, change to first one
-        if (map[x][y] == MAP_CODE.manBall + 1){
+        if (map[x][y] == MAP_CODE.manBall + 2){
 
             map[x][y] = MAP_CODE.block
         }
