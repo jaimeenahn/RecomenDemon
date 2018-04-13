@@ -16,9 +16,6 @@
     <script src="scene/scene_title.js"></script>
     <script src="scene/scene_editor.js"></script>
     <script src="stamina.js"></script>
-    <script src="HallofFame.js"></script>
-
-
 
     <style>
         .container {
@@ -91,7 +88,7 @@
 </div>
 <div>
     <div id="StaminaShop">
-        <a href="StaminaShop.html">Stamina Shop</a></div>
+        <a target="_blank" href="StaminaShop.html">Stamina Shop</a></div>
 </div>
 <audio id="myAudio" autoplay="autoplay">
     <source src="Electro.mp3">
@@ -108,8 +105,9 @@
         <div id="game">
             <canvas id="canvas" width="400" height="400"></canvas>
         </div>
+        
+        <div id="help">
 
-       <div id="help">
             <h3>HELP：</h3>
             <p>
                 s - Start the game<br>
@@ -118,13 +116,14 @@
                 c - Save the edited map <br>
                 z - Reset the edited map <br>
                 x - Quit map editing page <br>
+
             </p>
             <p>Press（↑ ← ↓ →）control the bulls</p>
             <p></p>
             <h4>Some more instructions</h4>
             <p>
-                Count of moves:<br>
-                Dinning Dollars<br>
+                Count of moves : <div id = "count" style = "width:15px">0</div> <br>
+                Dinning Dollars: <div id = "Dinings" style = "width:15px">0</div ><br>
                 r - Restart<br>
             </p>
         </div>
@@ -134,9 +133,6 @@
             </div>
 
         </div>
-
-
-
         <script>
             function aud_play_pause() {
                 var myAudio = document.getElementById("myAudio");
@@ -151,10 +147,7 @@
 
             _main('#canvas', 400, 400)
         </script>
-
-
     </div>
-
 
 </body>
 </html>
