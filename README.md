@@ -14,7 +14,7 @@ http://www.acsu.buffalo.edu/~jahn5/
 3. press "s" to start game
 
 ##Youtube Video(Beta release)
-https://youtu.be/vAD0DOZGPRo
+https://youtu.be/Z4A18OJb3Jo
 
 ## Table of Contents 
 ### 1. MVP
