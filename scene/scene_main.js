@@ -139,7 +139,7 @@ class SceneMain extends Scene{
             // skip to next stage
             this.paused = true
             this.tmp = document.getElementById("count").innerHTML
-            document.getElementById("Dinings").innerHTML = (this.count - this.dinning)*10;
+            document.getElementById("Dinings").innerHTML = (this.count - this.dinning)*25;
             setTimeout(() => {
                 this.nextLevel()
                 this.paused = false
