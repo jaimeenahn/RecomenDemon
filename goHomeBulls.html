@@ -38,7 +38,7 @@
         .container {
             margin: 0 auto;
             width :1000px;
-            height : 99%;
+            height : 600px;
             position :static;
             text-align: center;
             overflow: hidden;
@@ -60,7 +60,7 @@
         #HallofFame{
              position: relative;
              width : 100px;
-             top: 5%;
+             top: 60%;
              left: 85%;
              height: 3px;
         }
@@ -99,21 +99,21 @@
     </style>
 </head>
 <div>
-        <div id="HallofFame">
-            <input type="button" value="Hall of Fame" onclick="openChild()"><br>
+        <div id="HallofFame" style="top :3px; height:5px">
+            <input type="button" value="Hall of Fame" onclick="openChild()" style="position: absolute; top:600px; right:300px"><br>
 
 </div>
 <div>
     <div id="StaminaShop">
         <input type="button" value="Stamina Shop" onclick="openShop()"><br>
+
 </div>
 <audio id="myAudio" autoplay="autoplay">
-    <source src="Electro.mp3">
 
 
 </audio>
 
-<button type="button" onclick="aud_play_pause()" style="position: absolute; right:0">ON/OFF</button>
+<button type="button" onclick="aud_play_pause()" style="position: absolute; right:300px">ON/OFF</button>
     
 <body>
     
