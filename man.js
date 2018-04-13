@@ -3,6 +3,7 @@ class Man{
         this.direction = 'down'
         this.x = 0
         this.y = 0
+        this.passout = 0;
     }
     moveUp (map){
         let x = this.x
@@ -61,6 +62,13 @@ class Man{
                     map[x][y] = MAP_CODE.block
                 }
                 map[x - 1][y] = MAP_CODE.manBall
+                break;
+            case MAP_CODE.trap:
+                map[x][y] = MAP_CODE.block
+                map[x-1][y] = MAP_CODE.mantrap
+                this.x--;
+                this.passout = 1
+                alert('Dead! X_X')
                 break;
             default:
                 alert('moveUp error!')
@@ -126,6 +134,13 @@ class Man{
                 }
                 map[x + 1][y] = MAP_CODE.manBall
                 break;
+            case MAP_CODE.trap:
+                map[x][y] = MAP_CODE.block
+                map[x+1][y] = MAP_CODE.mantrap
+                this.x++;
+                this.passout = 1
+                alert('Dead! X_X')
+                break;
             default:
                 alert('moveUp error!')
                 break;
@@ -188,6 +203,14 @@ class Man{
                 }
                 map[x][y - 1] = MAP_CODE.manBall
                 break;
+            case MAP_CODE.trap:
+                map[x][y] = MAP_CODE.block
+                map[x][y-1] = MAP_CODE.mantrap
+                this.y--;
+                this.passout = 1
+                alert('Dead! X_X')
+                break;
+            default:
             default:
                 alert('moveUp error!')
                 break;
@@ -253,8 +276,15 @@ class Man{
                 }
                 map[x][y + 1] = MAP_CODE.manBall
                 break;
+            case MAP_CODE.trap:
+                map[x][y] = MAP_CODE.block
+                map[x][y+1] = MAP_CODE.mantrap
+                this.y++;
+                this.passout = 1
+                alert('Dead! X_X')
+                break;
             default:
-                alert('moveUp error!')
+                alert('moveRight error!')
                 break;
         }
 
