@@ -20,7 +20,12 @@
 					if(opener.document.getElementById("Dinings").innerHTML>=75)
                     {
 						document.getElementById("wing").innerHTML = "Your Stamina gained 10!";
-						opener.document.getElementById("demo").innerHTML = parseInt(opener.document.getElementById("demo").innerHTML) + 10;
+						if(parseInt(opener.document.getElementById("demo").innerHTML)+10 < 100){
+							opener.document.getElementById("demo").innerHTML = parseInt(opener.document.getElementById("demo").innerHTML) + 10;
+						}
+						else{
+							opener.document.getElementById("demo").innerHTML = 100;
+						}
 						var elem = opener.document.getElementById("stamina");
 						elem.style.width = opener.document.getElementById("demo").innerHTML + '%';
 						opener.document.getElementById("Dinings").innerHTML = opener.document.getElementById("Dinings").innerHTML - 75;
@@ -42,7 +47,11 @@
 					if(opener.document.getElementById("Dinings").innerHTML>=140)
 					{
 						document.getElementById("pizza").innerHTML = "Your Stamina gained 20!";
-						opener.document.getElementById("demo").innerHTML = parseInt(opener.document.getElementById("demo").innerHTML) + 20;
+						if(parseInt(opener.document.getElementById("demo").innerHTML)+20 < 100){
+							opener.document.getElementById("demo").innerHTML = parseInt(opener.document.getElementById("demo").innerHTML) + 20;
+						}else{
+							opener.document.getElementById("demo").innerHTML = 100;
+						}
 						var elem = opener.document.getElementById("stamina");
 						elem.style.width = opener.document.getElementById("demo").innerHTML + '%';
 						opener.document.getElementById("Dinings").innerHTML = opener.document.getElementById("Dinings").innerHTML - 140;
@@ -65,7 +74,12 @@
 					if(opener.document.getElementById("Dinings").innerHTML>=100)
 					{
 						document.getElementById("pasta").innerHTML = "Your Stamina gained 40!";
-						opener.document.getElementById("demo").innerHTML = parseInt(opener.document.getElementById("demo").innerHTML) + 40;
+						if(parseInt(opener.document.getElementById("demo").innerHTML)+ 40<100){
+							opener.document.getElementById("demo").innerHTML = parseInt(opener.document.getElementById("demo").innerHTML) + 40;
+							
+						}else{
+							opener.document.getElementById("demo").innerHTML = 100;
+						}
 						var elem = opener.document.getElementById("stamina");
 						elem.style.width = opener.document.getElementById("demo").innerHTML + '%';
 						opener.document.getElementById("Dinings").innerHTML = opener.document.getElementById("Dinings").innerHTML - 250;
