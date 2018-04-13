@@ -165,8 +165,14 @@ class SceneMain extends Scene{
         if (this.level > this.maps.length){
             alert('Congrate')
             this.level = 1
+            this.count = 0
             let scene = this.game.sceneFactory.getSceneTitleInstance()
             this.loadScene(scene)
+            document.getElementById("count").innerHTML = 0;
+            document.getElementById("Dinings").innerHTML = 0;
+            document.getElementById("demo").innerHTML = 100;
+            var elem = document.getElementById("stamina");
+			elem.style.width = 100 + '%';
             return
         }
         this.loadLevel(this.level)
