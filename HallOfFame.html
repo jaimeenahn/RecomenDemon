@@ -6,7 +6,7 @@
     <script src="HallofFame.js"></script>
 </head>
 
-</body>
+
 <body id="content">
 <style type="text/css">
     .tg  {border-collapse:collapse;border-spacing:0;border-color:#bbb;}
@@ -18,27 +18,31 @@
 </style>
 
 
-<table id ="content2" class="tg"; style="margin-top:100px; margin-left:470px;" contenteditable="">
-    <tr>
-        <th class="tg-rbo0" colspan="2">Hall of Fame</th>
-    </tr>
-    <tr><td><div id = "qw" contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
 
-    <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
-    <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
-    <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
-    <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
-    <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
-</table>
 
-<script>
-    var theContent = $('#content3');
-    $('#save').on('click', function(){
-        var editedContent   = theContent.html();
-        localStorage.newContent = editedContent;
-    });
-</script>
-<script src="./contentstashable.js"></script>
+
+    <table class="tg"; style="margin-top:100px; margin-left:470px;">
+
+        <tr>
+            <th class="tg-rbo0" colspan="2">Hall of Fame</th>
+        </tr>
+        <tr><td><div id = "qw" contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
+
+        <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
+        <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
+        <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
+        <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
+        <tr><td><div contenteditable>Enter Your ID</div></td><td><div contenteditable>Enter you score</div></td></tr>
+    </table>
+
+    <script>
+        var theContent = $('#content3');
+        $('#save').on('click', function(){
+            var editedContent   = theContent.html();
+            localStorage.newContent = editedContent;
+        });
+    </script>
+    <script src="./contentstashable.js"></script>
 </body>
 
 
