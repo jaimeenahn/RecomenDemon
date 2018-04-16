@@ -139,6 +139,11 @@ class SceneMain extends Scene{
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         this.drawMap(map)
         // determine  win or lose
+        if(this.isLose(map)){
+            this.paused = true
+            alert("Bulls are gone")
+        }
+
         if (this.isWin(map)){
             // skip to next stage
             this.paused = true
@@ -160,13 +165,45 @@ class SceneMain extends Scene{
         }
         return true
     }
+    isLose (map){
+        let bullcount = 0
+        let homecount = 0
+        for (let i = 0; i < map.length; i++){
+            for (let j = 0; j < map[i].length; j++){
+                if(map[i][j] == MAP_CODE.house){
+                    homecount++
+                }
+                if (map[i][j] == MAP_CODE.bull){
+                    bullcount++
+                }
+
+            }
+        }
+	if (bullcount < homecount){
+		return true
+	}
+        if(bullcount > 0){
+            return false
+        }
+        else if(bullcount == 0 && homecount == 0 )
+        {
+            return false
+        }
+        return true
+    }
     nextLevel (){
         this.level++
         if (this.level > this.maps.length){
             alert('Congrate')
             this.level = 1
+            this.count = 0
             let scene = this.game.sceneFactory.getSceneTitleInstance()
             this.loadScene(scene)
+            document.getElementById("count").innerHTML = 0;
+            document.getElementById("Dinings").innerHTML = 0;
+            document.getElementById("demo").innerHTML = 100;
+            var elem = document.getElementById("stamina");
+			elem.style.width = 100 + '%';
             return
         }
         this.loadLevel(this.level)
