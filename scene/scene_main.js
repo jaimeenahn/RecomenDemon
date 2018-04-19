@@ -8,6 +8,7 @@ class SceneMain extends Scene{
         this.flag = 0
         this.dinning = 0
         this.loop = 0
+        this.rank = 'S'
         document.write("<script type='text/javascript' src='stamina.js'><"+"/script>"); 
         var elem = document.getElementById("count");    
         this.keydown = (event) => {
@@ -17,6 +18,16 @@ class SceneMain extends Scene{
                     this.man.moveUp(this.map)
                     this.refresh(this.map)
                     this.count++;
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
                     move();
                     this.flag = checkstamina();
@@ -25,7 +36,17 @@ class SceneMain extends Scene{
                     this.man.moveDown(this.map)
                     this.refresh(this.map)
                     this.count++
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
                     move();
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
@@ -33,7 +54,17 @@ class SceneMain extends Scene{
                     this.man.moveLeft(this.map)
                     this.refresh(this.map)
                     this.count++
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
                     move();
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
@@ -41,7 +72,17 @@ class SceneMain extends Scene{
                     this.man.moveRight(this.map)
                     this.refresh(this.map)
                     this.count++
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
                     move();
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
@@ -139,11 +180,6 @@ class SceneMain extends Scene{
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         this.drawMap(map)
         // determine  win or lose
-        if(this.isLose(map)){
-            this.paused = true
-            alert("Bulls are gone")
-        }
-
         if (this.isWin(map)){
             // skip to next stage
             this.paused = true
@@ -162,32 +198,6 @@ class SceneMain extends Scene{
                     return false
                 }
             }
-        }
-        return true
-    }
-    isLose (map){
-        let bullcount = 0
-        let homecount = 0
-        for (let i = 0; i < map.length; i++){
-            for (let j = 0; j < map[i].length; j++){
-                if(map[i][j] == MAP_CODE.house){
-                    homecount++
-                }
-                if (map[i][j] == MAP_CODE.bull){
-                    bullcount++
-                }
-
-            }
-        }
-	if (bullcount < homecount){
-		return true
-	}
-        if(bullcount > 0){
-            return false
-        }
-        else if(bullcount == 0 && homecount == 0 )
-        {
-            return false
         }
         return true
     }
