@@ -9,13 +9,14 @@ var MAP_CODE = {
     manBall: 7,
     trap: 8,
     mantrap: 9,
+    currentblock: 10,
 }
 var CONFIG = {
     blockWidth: 40,
 }
 window.boxMaps = [
     //paste edited map here
-    
+
     // 1
     [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1,],
