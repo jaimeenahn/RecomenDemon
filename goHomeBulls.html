@@ -18,6 +18,9 @@
     <script src="scene/scene_editor.js"></script>
     <script src="stamina.js"></script>
     <script type="text/javascript">
+
+   
+
         function openScore()
         {
             window.name = "parentForm";
@@ -96,17 +99,32 @@
     </style>
 </head>
 
-
 <div>
     <div id="StaminaShop">
         <input type="button" value="Stamina Shop" onclick="openShop()"><br>
 
 </div>
+
+<!-- here is the code for rank in html -->
+
+<div>
+		<p style="position: absolute; right:200px; top:0;right:5%; font-size:14; font-family:Calibri"> Rank:</p>
+</div>
+
+<div>
+        <p id="rank" style="position: absolute;right:200px; top:0; right:4%; font-size:14; font-family:Calibri"> S </p>
+</div>
+
+<!-- here is the code for rank in html -->
+
+
 <audio id="myAudio" autoplay="autoplay">
     <source src = "Electro.mp3">
 </audio>
 
 <button type="button" onclick="aud_play_pause()" style="position: absolute; right:300px">ON/OFF</button>
+
+	
     
 <body>
     
@@ -128,7 +146,6 @@
                 c - Save the edited map <br>
                 z - Reset the edited map <br>
                 x - Quit map editing page <br>
-
             </p>
             <p>Press（↑ ← ↓ →）control the bulls</p>
             <p></p>
@@ -149,10 +166,8 @@
         <script>
             function aud_play_pause() {
                 var myAudio = document.getElementById("myAudio");
-
                 if (myAudio.paused) {
                     myAudio.play();
-
                 } else {
                     myAudio.pause();
                 }
