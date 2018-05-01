@@ -195,6 +195,10 @@ class SceneMain extends Scene{
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         this.drawMap(map)
         // determine  win or lose
+        if(this.isLose(map)){
+            this.paused = true
+            alert("Bulls are gone")
+            }
         if (this.isWin(map)){
             // skip to next stage
             this.paused = true
