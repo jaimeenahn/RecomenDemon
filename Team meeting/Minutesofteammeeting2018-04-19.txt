@@ -1,0 +1,19 @@
+Meeting date and time: 1:00 - 2:00 PM, April 19, 2018
+Meeting attendance: 
+
+Everybody is presented.
+
+Summary
+*. Tomorrow is collaboration due.
+*. Doing hot fix for every bugs found.
+
+Until last meeting
+
+*. Bohang : Finish the shopping system.
+*. Dongkyu : Complete hall of fame system.
+*. Zhao : Complete hall of fame system.
+*. Jaimeen : Make shopping page functional.
+
+Until next meeting
+##Everyone should be familiar with javascript.
+*.Everybody finish collaboration phase assigned

@@ -93,6 +93,20 @@ class SceneMain extends Scene{
                     this.paused++
                 }
             }
+            else {
+                if (k == 'r'){
+                    this.level = 1
+                    this.count = 0
+                    document.getElementById("demo").innerHTML =  100
+                    document.getElementById("count").innerHTML = this.count
+                    var elem = document.getElementById("stamina");
+					elem.style.width = document.getElementById("demo").innerHTML + '%';
+                    this.init()
+                    this.man.passout--
+                    this.paused--
+                    this.flag--
+                }
+            }
         }
     }
     //Intialize the scene
@@ -199,6 +213,30 @@ class SceneMain extends Scene{
                     return false
                 }
             }
+        }
+        return true
+    }
+    isLose (map){
+        let bullcount = 0
+        let homecount = 0
+        for (let i = 0; i < map.length; i++){
+            for (let j = 0; j < map[i].length; j++){
+                if(map[i][j] == MAP_CODE.house){
+                    homecount++
+                }
+                if (map[i][j] == MAP_CODE.bull){
+                    bullcount++
+                }
+            }
+        }
+        if(bullcount < homecount){
+            return true}
+        if(bullcount > 0){
+            return false
+        }
+        else if(bullcount == 0 && homecount == 0 )
+        {
+            return false
         }
         return true
     }
