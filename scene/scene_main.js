@@ -160,7 +160,7 @@ class SceneMain extends Scene{
                     // man
                     this.man.x = i
                     this.man.y = j
-                    this.drawItem(j, i, 'currentblock')
+                    //this.drawItem(j, i, 'currentblock')
                     this.drawItem(j, i, this.man.direction)
                 }
                 if (map[i][j] == MAP_CODE.boxedBull){
