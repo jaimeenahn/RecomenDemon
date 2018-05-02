@@ -7,22 +7,27 @@ class SceneMain extends Scene{
         this.count = 0
         this.flag = 0
         this.dinning = 0
-        document.write("<script type='text/javascript' src='stamina.js'><"+"/script>"); 
-        var elem = document.getElementById("count");    
+        this.loop = 0
+        this.rank = 'S'
+        document.write("<script type='text/javascript' src='stamina.js'><"+"/script>");
+        var elem = document.getElementById("count");
         this.keydown = (event) => {
             let k = event.key
             if (!this.paused){
-                if (this.flag==1)
-                {
-                    while(1)
-                    {
-                        k = 'p'
-                    }
-                }
                 if (k == 'ArrowUp'){
                     this.man.moveUp(this.map)
                     this.refresh(this.map)
                     this.count++;
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
                     move();
                     this.flag = checkstamina();
@@ -31,7 +36,17 @@ class SceneMain extends Scene{
                     this.man.moveDown(this.map)
                     this.refresh(this.map)
                     this.count++
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
                     move();
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
@@ -39,7 +54,17 @@ class SceneMain extends Scene{
                     this.man.moveLeft(this.map)
                     this.refresh(this.map)
                     this.count++
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
                     move();
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
@@ -47,12 +72,39 @@ class SceneMain extends Scene{
                     this.man.moveRight(this.map)
                     this.refresh(this.map)
                     this.count++
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
                     move();
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
                     this.flag = checkstamina();
                 }
                 if (k == 'r'){
                     this.loadLevel (this.level)
+                }
+                if(this.man.passout==1 || this.flag==1){
+                    this.paused++
+                }
+            }
+            else {
+                if (k == 'r'){
+                    this.level = 1
+                    this.count = 0
+                    document.getElementById("demo").innerHTML =  100
+                    document.getElementById("count").innerHTML = this.count
+                    var elem = document.getElementById("stamina");
+					elem.style.width = document.getElementById("demo").innerHTML + '%';
+                    this.init()
+                    this.man.passout--
+                    this.paused--
+                    this.flag--
                 }
             }
         }
@@ -108,6 +160,7 @@ class SceneMain extends Scene{
                     // man
                     this.man.x = i
                     this.man.y = j
+                    this.drawItem(j, i, 'currentblock')
                     this.drawItem(j, i, this.man.direction)
                 }
                 if (map[i][j] == MAP_CODE.boxedBull){
@@ -118,6 +171,13 @@ class SceneMain extends Scene{
                     this.man.y = j
                     this.drawItem(j, i, 'house')
                     this.drawItem(j, i, this.man.direction)
+                }
+                if (map[i][j] == MAP_CODE.trap){
+                    this.drawItem(j, i, 'trap')
+                }
+                if (map[i][j] == MAP_CODE.mantrap){
+                    this.drawItem(j, i, 'trap')
+                    this.drawItem(j, i, 'dead')
                 }
             }
         }
@@ -135,6 +195,10 @@ class SceneMain extends Scene{
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         this.drawMap(map)
         // determine  win or lose
+        if(this.isLose(map)){
+            this.paused = true
+            alert("Bulls are gone")
+            }
         if (this.isWin(map)){
             // skip to next stage
             this.paused = true
@@ -156,13 +220,43 @@ class SceneMain extends Scene{
         }
         return true
     }
+    isLose (map){
+        let bullcount = 0
+        let homecount = 0
+        for (let i = 0; i < map.length; i++){
+            for (let j = 0; j < map[i].length; j++){
+                if(map[i][j] == MAP_CODE.house){
+                    homecount++
+                }
+                if (map[i][j] == MAP_CODE.bull){
+                    bullcount++
+                }
+            }
+        }
+        if(bullcount < homecount){
+            return true}
+        if(bullcount > 0){
+            return false
+        }
+        else if(bullcount == 0 && homecount == 0 )
+        {
+            return false
+        }
+        return true
+    }
     nextLevel (){
         this.level++
         if (this.level > this.maps.length){
             alert('Congrate')
             this.level = 1
+            this.count = 0
             let scene = this.game.sceneFactory.getSceneTitleInstance()
             this.loadScene(scene)
+            document.getElementById("count").innerHTML = 0;
+            document.getElementById("Dinings").innerHTML = 0;
+            document.getElementById("demo").innerHTML = 100;
+            var elem = document.getElementById("stamina");
+			elem.style.width = 100 + '%';
             return
         }
         this.loadLevel(this.level)
