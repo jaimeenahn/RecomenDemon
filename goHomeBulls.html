@@ -19,19 +19,18 @@
     <script src="stamina.js"></script>
     <script type="text/javascript">
 
-   
 
         function openScore()
         {
             window.name = "parentForm";
             window.open("HallOfFame.html",
-                    "childForm", "width=700, height=700, resizable = no, scrollbars = no");    
+                "childForm", "width=700, height=700, resizable = no, scrollbars = no");
         }
         function openShop()
         {
             window.name = "parentForm";
             window.open("StaminaShop.html",
-                    "childForm", "width=570, height=700, resizable = no");    
+                "childForm", "width=570, height=700, resizable = no");
         }
     </script>
 
@@ -58,12 +57,13 @@
             text-align: left;
         }
         #HallofFame{
-             position: relative;
-             width : 100px;
-             top: 10%;
-             left: 75%;
-             height: 3px;
+            position: relative;
+            width : 100px;
+            top: 10%;
+            left: 75%;
+            height: 3px;
         }
+        
         #StaminaShop{
             position: relative;
             width : 200px;
@@ -79,17 +79,17 @@
             height: 30px;
             color:white!important;
             background-color:gray;
-            }
+        }
         #stamina{
-          	position : relative;
-          	top : 0%;
+            position : relative;
+            top : 0%;
             left : 0%;
             height: 30px;
             background-color: green;
         }
         #staamt{
             position : relative;
-          	top : 0px;
+            top : 0px;
             width : 400px;
             left : 0px;
         }
@@ -103,7 +103,10 @@
     <div id="StaminaShop">
         <input type="button" value="Stamina Shop" onclick="openShop()"><br>
 
-</div>
+
+    </div>
+   
+
 
 
 <div>
@@ -130,13 +133,14 @@
     
 <body>
     
+
     <div class="container">
         <h1>GoHomeBulls</h1>
         <div id="game">
             <canvas id="canvas" width="400" height="400"></canvas>
         </div>
         <div id="HallofFame">
-                <a target = "_blank" href="HallOfFame.html">Hall of Fame</a>
+            <a target = "_blank" href="HallOfFame.html">Hall of Fame</a>
         </div>
         <div id="help">
 
@@ -154,13 +158,13 @@
             <h4>Some more instructions</h4>
             <p>
                 Count of moves : <div id = "count" style = "width:15px">0</div> <br>
-                Dinning Dollars: <div id = "Dinings" style = "width:15px">0</div ><br>
-                r - Restart<br>
+            Dinning Dollars: <div id = "Dinings" style = "width:15px">0</div ><br>
+            r - Restart<br>
             </p>
         </div>
         <div id = "actionbar-light-grey" style="height:24px;width:400px">
             <div id = "stamina" style="height:24px;width:400px">
-                    <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>            
+                <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>
             </div>
 
         </div>
@@ -174,10 +178,9 @@
                     myAudio.pause();
                 }
             }
-
             _main('#canvas', 400, 400)
         </script>
     </div>
 
-</body>
+    </body></div>
 </html>
