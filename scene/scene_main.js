@@ -8,48 +8,126 @@ class SceneMain extends Scene{
         this.flag = 0
         this.dinning = 0
         this.loop = 0
-        document.write("<script type='text/javascript' src='stamina.js'><"+"/script>"); 
-        var elem = document.getElementById("count");    
+        this.rank = 'S'
+        document.write("<script type='text/javascript' src='stamina.js'><"+"/script>");
+        var elem = document.getElementById("count");
         this.keydown = (event) => {
             let k = event.key
             if (!this.paused){
                 if (k == 'ArrowUp'){
-                    this.man.moveUp(this.map)
+                    move();
+                    this.flag = checkstamina();
+                    if(!this.flag)
+                        this.man.moveUp(this.map)
                     this.refresh(this.map)
                     this.count++;
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
-                    move();
-                    this.flag = checkstamina();
                 }
                 if (k == 'ArrowDown'){
-                    this.man.moveDown(this.map)
+                    move();
+                    this.flag = checkstamina();
+                    if(!this.flag)
+                        this.man.moveDown(this.map)
                     this.refresh(this.map)
                     this.count++
-                    move();
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
-                    this.flag = checkstamina();
                 }
                 if (k == 'ArrowLeft'){
-                    this.man.moveLeft(this.map)
+                    move();
+                    this.flag = checkstamina();
+                    if(!this.flag)
+                        this.man.moveLeft(this.map)
                     this.refresh(this.map)
                     this.count++
-                    move();
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
-                    this.flag = checkstamina();
                 }
                 if (k == 'ArrowRight'){
-                    this.man.moveRight(this.map)
+                    move();
+                    this.flag = checkstamina();
+                    if(!this.flag)
+                        this.man.moveRight(this.map)
                     this.refresh(this.map)
                     this.count++
-                    move();
+                    if(this.count > 230 && this.count <=250){
+                        this.rank = 'A'
+                    }
+                    else if(this.count > 250 && this.count <= 300){
+                        this.rank = 'B'
+                    }
+                    else if(this.count > 300){
+                        this.rank = 'C'
+                    }
+                    document.getElementById("rank").innerHTML= this.rank;
                     document.getElementById("count").innerHTML = this.count;
-                    this.flag = checkstamina();
                 }
-                if (k == 'r'){
+                if (k == 'r'|| k == 'R'){
                     this.loadLevel (this.level)
                 }
                 if(this.man.passout==1 || this.flag==1){
-                    this.paused++
+                    this.paused = 1
+                }
+            }
+            else {
+                if (k == 'r' || k == 'R'){
+                    var elem = document.getElementById("stamina");
+                    if(this.flag == 1)
+                    {   
+                        restore()
+                        this.flag = 0;
+                        this.paused = 0;
+                        this.man.passout = 0;
+                        this.level = 1;
+                        this.init();
+                        elem.style.backgroundColor = "green";
+                        document.getElementById("demo").innerHTML = 100
+                        document.getElementById("Dinings").innerHTML = 0
+                        this.count = 0
+                        document.getElementById("count").innerHTML = this.count
+                    }
+                    else
+                    {
+                        this.flag = 0
+                        this.level = 1
+                        this.count = 0
+                        document.getElementById("demo").innerHTML =  100
+                        document.getElementById("count").innerHTML = this.count
+                        document.getElementById("Dinings").innerHTML = 0
+					    elem.style.width = document.getElementById("demo").innerHTML + '%';
+                        this.init()
+                        this.man.passout = 0
+                        this.paused = 0
+                    }
+                    
                 }
             }
         }
@@ -105,6 +183,7 @@ class SceneMain extends Scene{
                     // man
                     this.man.x = i
                     this.man.y = j
+                    //this.drawItem(j, i, 'currentblock')
                     this.drawItem(j, i, this.man.direction)
                 }
                 if (map[i][j] == MAP_CODE.boxedBull){
@@ -142,13 +221,17 @@ class SceneMain extends Scene{
         if(this.isLose(map)){
             this.paused = true
             alert("Bulls are gone")
-        }
-
+            }
         if (this.isWin(map)){
             // skip to next stage
             this.paused = true
             this.tmp = document.getElementById("count").innerHTML
+            if(this.level >1){
             document.getElementById("Dinings").innerHTML = (this.count - this.dinning)*25;
+            }
+            else{
+                document.getElementById("Dinings").innerHTML = (this.count)*25;
+            }
             setTimeout(() => {
                 this.nextLevel()
                 this.paused = false
@@ -176,12 +259,10 @@ class SceneMain extends Scene{
                 if (map[i][j] == MAP_CODE.bull){
                     bullcount++
                 }
-
             }
         }
-	if (bullcount < homecount){
-		return true
-	}
+        if(bullcount < homecount){
+            return true}
         if(bullcount > 0){
             return false
         }
@@ -213,4 +294,7 @@ class SceneMain extends Scene{
         scene.init()
     }
 
+}
+function call(){
+    return 
 }

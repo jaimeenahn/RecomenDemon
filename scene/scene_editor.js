@@ -5,15 +5,15 @@ class SceneEditor extends Scene{
         this.keydown = (event) => {
             let k = event.key
             //save map
-            if (k == 'c'){
+            if (k == 'c' | k == 'C'){
                 this.saveMap(this.map)
             }
             //reset map
-            if (k == 'z'){
+            if (k == 'z' | k == 'Z'){
                 this.resetMap(this.map)
             }
             //quit editing mode
-            if (k == 'x'){
+            if (k == 'x' | k == 'X'){
                 this.exit()
             }
         }
@@ -73,6 +73,7 @@ class SceneEditor extends Scene{
                     // man
                     this.man.x = i
                     this.man.y = j
+                    //this.drawItem(j, i, 'currentblock')
                     this.drawItem(j, i, this.man.direction)
                 }
                 if (map[i][j] == MAP_CODE.boxedBull){

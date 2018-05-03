@@ -1,0 +1,17 @@
+Meeting date and time: 1:00 - 2:00 PM, April 26, 2018
+Meeting attendance: 
+
+Everybody is presented.
+
+Summary
+*. Organize presentation.
+*. Take part of what to do in presentation
+*. Hotfix and enhancement
+
+Until next meeting
+##Everyone should be familiar with javascript.
+
+*. Bohang : Preparing technical detail
+*. Dongkyu : Preparing demo in presentation.
+*. Zhao : Hotfix.
+*. Jaimeen : Preparing technical detail 
