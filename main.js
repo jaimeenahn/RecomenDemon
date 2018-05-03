@@ -6,21 +6,24 @@ function _main(canvasDom, width, height) {
         house: 'images/house.png',
         block: 'images/block.png',
         bull: 'images/bull.png',
+        currentblock: 'images/currentblock.png',
         down: 'images/down.png',
         left: 'images/left.png',
         right: 'images/right.png',
         up: 'images/up.png',
         wall: 'images/wall.png',
         boxedBull: 'images/boxedBull.png',
+        trap: 'images/trap.png',
+        dead: 'images/dead.png',
     }
     let game = new Game(canvas)
     initImages(images, game)
-    
+
 }
 
 function initImages(images, game) {
     //pre-load all of the image
-    
+
     let loads = []
     let imgNames = Object.keys(images)
     for (let i = 0; i < imgNames.length; i++){
@@ -32,7 +35,7 @@ function initImages(images, game) {
             images[name] = img
             loads.push(1)
             if (loads.length == imgNames.length){
-                //Images loaded sucessfully 
+                //Images loaded sucessfully
                 game.images = images
                 //Game intialize
                 game.init()
