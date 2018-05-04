@@ -123,8 +123,14 @@
 <!-- here is the code for rank in html -->
 
 
+
     <audio id="myAudio" autoplay="autoplay" controls = "controls" style="position: absolute; right:300px">
+<<<<<<< HEAD
         <source src = "twoMusic1.mp3">
+=======
+        <source src = "twoMusic.mp3">
+
+>>>>>>> 1b8d1eb5fd2a870cd1261c4bfc99f318c8ed1656
     </audio>
 
     <button type="button" onclick="aud_play_pause()" style="position: absolute; right:200px">ON/OFF</button>
@@ -169,10 +175,13 @@
         <script>
             function aud_play_pause() {
                 var myAudio = document.getElementById("myAudio");
+                var myAudio1 = document.getElementById("myAudio1")
                 if (myAudio.paused) {
                     myAudio.play();
                 } else {
                     myAudio.pause();
+                    myAudio1.play();
+
                 }
             }
             _main('#canvas', 400, 400)
