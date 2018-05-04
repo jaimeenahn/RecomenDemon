@@ -19,11 +19,11 @@
     <script src="stamina.js"></script>
     <script type="text/javascript">
 
-
         function openScore()
         {
             window.name = "parentForm";
-          
+            window.open("HallOfFame.html",
+                "childForm", "width=700, height=700, resizable = no, scrollbars = no");
         }
         function openShop()
         {
@@ -55,14 +55,19 @@
             left: 500px;
             text-align: left;
         }
-
+        #HallofFame{
+            position: relative;
+            width : 100px;
+            top: 10%;
+            left: 75%;
+            height: 3px;
+        }
         #StaminaShop{
             position: relative;
             width : 200px;
             top: 5%;
             left: 0%;
             height: 3px;
-            
         }
         #actionbar-light-grey
         {   position : relative;
@@ -94,53 +99,50 @@
 
 <div>
     <div id="StaminaShop">
-        <input type="button" value="Stamina Shop" style="display: inline-block;
-  padding: 10px 7px;
-  font-size: 12px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;" onclick="openShop()"><br>
-
+        <input type="button" value="Stamina Shop" onclick="openShop()"><br>
 
     </div>
-   
 
 
+    <div>
+        <p style="position: absolute; right:200px; top:0;right:5%; font-size:14; font-family:Calibri"> Rank:</p>
+    </div>
 
-<div>
-		<p style="position: absolute; right:200px; top:0;right:5%; font-size:14; font-family:Calibri"> Rank:</p>
-</div>
-
-<div>
+    <div>
         <p id="rank" style="position: absolute;right:200px; top:0; right:4%; font-size:14; font-family:Calibri"> S </p>
-</div>
+    </div>
 
-<!-- here is the code for rank in html -->
+    <!-- here is the code for rank in html -->
 
 
-    <audio id="myAudio" autoplay="autoplay" controls = "controls" loop = "loop" style="position: absolute; right:300px">
-        <source src = "Electro.mp3">
-        <source src = "Bandit.mp3">
+    <audio id="myAudio" autoplay="autoplay" controls = "controls" style="position: absolute; right:300px">
+        <source src = "twoMusic1.mp3">
     </audio>
 
 
-    <button type="button" onclick="aud_play_pause()" style="position: absolute; right:200px;">ON/OFF</button>
 
 
-	
+
+    <button type="button" onclick="aud_play_pause()" style="position: absolute; right:200px">ON/OFF</button>
+
+
+
+    <body>
+
     
-<body>
+
+ 
 <body background="images/06.jpg"> </body>
+
 
     <div class="container">
         <h1><span style="color:  #ffffff;">GoHomeBulls</span></h1>
+
         <div id="game">
             <canvas id="canvas" width="400" height="400"></canvas>
+        </div>
+        <div id="HallofFame">
+            <a target = "_blank" href="HallOfFame.html">Hall of Fame</a>
         </div>
         <div id="help">
 
@@ -177,18 +179,15 @@
         <script>
             function aud_play_pause() {
                 var myAudio = document.getElementById("myAudio");
-                var myAudio1 = document.getElementById("myAudio1")
                 if (myAudio.paused) {
                     myAudio.play();
                 } else {
                     myAudio.pause();
-                    myAudio1.play();
-
                 }
             }
             _main('#canvas', 400, 400)
         </script>
     </div>
 
-    </body></div>
+    </body>
 </html>
