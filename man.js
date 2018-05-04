@@ -34,7 +34,11 @@ class Man{
 			   //bull's position used to be a house
                     if (map[x - 2][y] == MAP_CODE.house){
                         map[x - 2][y] = MAP_CODE.boxedBull
-                    } else {
+                    }else if(map[x-2][y] == MAP_CODE.trap)
+                    {
+                        map[x-1][y] = MAP_CODE.man
+                    } 
+                    else {
                         map[x - 2][y] = MAP_CODE.bull
                     }
                 }
@@ -105,7 +109,11 @@ class Man{
 			//Bull's position used to be a house
                     if (map[x + 2][y] == MAP_CODE.house){
                         map[x + 2][y] = MAP_CODE.boxedBull
-                    } else {
+                    }else if(map[x+2][y] == MAP_CODE.trap)
+                    {
+                        map[x+1][y] = MAP_CODE.man
+                    } 
+                    else {
                         map[x + 2][y] = MAP_CODE.bull
                     }
                 }
@@ -174,7 +182,11 @@ class Man{
 
                     if (map[x][y - 2] == MAP_CODE.house){
                         map[x][y - 2] = MAP_CODE.boxedBull
-                    } else {
+                    }else if(map[x][y - 2] == MAP_CODE.trap)
+                    {
+                        map[x][y-1] = MAP_CODE.man
+                    } 
+                    else {
                         map[x][y - 2] = MAP_CODE.bull
                     }
                 }
@@ -210,7 +222,6 @@ class Man{
                 this.passout = 1
                 alert('Dead! X_X')
                 break;
-            
             default:
                 alert('moveUp error!')
                 break;
@@ -247,7 +258,11 @@ class Man{
 			// is used to be a house
                     if (map[x][y + 2] == MAP_CODE.house){
                         map[x][y + 2] = MAP_CODE.boxedBull
-                    } else {
+                    } else if(map[x][y + 2] == MAP_CODE.trap)
+                    {
+                        map[x][y+1] = MAP_CODE.man
+                    }
+                    else{
                         map[x][y + 2] = MAP_CODE.bull
                     }
                 }

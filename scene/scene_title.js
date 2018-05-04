@@ -5,11 +5,11 @@ class SceneTitle extends Scene{
         this.keydown = (event) => {
             let k = event.key
             if (!this.paused){
-                if (k == 's'){
+                if (k == 's' | k == 'S'){
                     let scene = this.game.sceneFactory.getSceneMainInstance()
                     this.loadScene(scene)
                 }
-                if (k == 'e'){
+                if (k == 'e' | k == 'E'){
                     let scene = this.game.sceneFactory.getSceneEditorInstance()
                     this.loadScene(scene)
                 }
