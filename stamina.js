@@ -4,14 +4,14 @@ var flag = 0
     var elem = document.getElementById("stamina");   
     var id = frame(); //decrease by second
     function frame() {
+      width = document.getElementById("demo").innerHTML;
         if (width <= 0) {
-        document.getElementById("stamina").innerHTML = staminaAlertBox();
-        document.getElementById("stamina").innerHTML = "Lack of STAMINA";
+        staminaAlertBox();
         elem.style.width = 100+'%';
         elem.style.backgroundColor = "gray";
         flag = 1;
       } else { //decreasing
-        width = document.getElementById("demo").innerHTML - 1; 
+        width--; 
         elem.style.width = width + '%'; 
         var num = width;
         num = num.toFixed(0);
@@ -27,6 +27,9 @@ function staminaAlertBox() {
   }
 function checkstamina(){
   return flag;
+}
+function restore(){
+  flag = 0;  
 }
 function noKey() {
   try {event.keyCode = 0; }catch(e) { }
