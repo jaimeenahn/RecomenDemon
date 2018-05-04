@@ -3,16 +3,18 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/goHomeBulls/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ##Landing Page
-https://jaimeenahn.github.io/goHomeBulls/
+https://buffalo.edu/~jahn5
 
 ##How to run?
 
-1. please visit https://jaimeenahn.github.io/goHomeBulls/
+1. please visit https://buffalo.edu/~jahn5
 
 2. press the "Start Now"
 
 3. press "s" to start game
 
+##Youtube Video(Official release)
+https://youtu.be/RIPDGJDB6B4
 ##Youtube Video(Beta release)
 https://youtu.be/Z4A18OJb3Jo
 
@@ -45,13 +47,16 @@ Therefore, maintaining stamina is the key.
 	- The ranks(S, A, B, C) will be given depends on how many steps the user uses : smaller is better
 	- The user who used minimun step will be recorded in UB Hall of Fame. 
 2. Sound
-	- When bulls are moved, "moo~" will be sounded
-	- We will use diffent musics for every stages
-	- If trap is activated, the specific music will be sounded	
+	- Turn on and off by button on top-right.
+	- You can slide the volume and download if you want.
+	- Various kind of music will be played.	
 3. Shopping
 	- If user complete each stage the dinning dollars are given depend on their rank of that stage.
 	- Stamina of user is maintained to each of next stage.
 	- Before start new stage user can buy foods in shop using dinning dollars which recover stamina. 
+4. Restart
+	- You can restart the stage whenever you want.
+	- However, if bulls or man fall into lake or stamina is ran out, this function makes you go to initial stage.
 
 ***
 
