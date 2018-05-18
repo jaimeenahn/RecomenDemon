@@ -18,17 +18,18 @@
     <script src="scene/scene_editor.js"></script>
     <script src="stamina.js"></script>
     <script type="text/javascript">
+
         function openScore()
         {
             window.name = "parentForm";
             window.open("HallOfFame.html",
-                    "childForm", "width=700, height=700, resizable = no, scrollbars = no");    
+                "childForm", "width=700, height=700, resizable = no, scrollbars = no");
         }
         function openShop()
         {
             window.name = "parentForm";
             window.open("StaminaShop.html",
-                    "childForm", "width=570, height=700, resizable = no");    
+                "childForm", "width=570, height=700, resizable = no");
         }
     </script>
 
@@ -55,11 +56,11 @@
             text-align: left;
         }
         #HallofFame{
-             position: relative;
-             width : 100px;
-             top: 10%;
-             left: 75%;
-             height: 3px;
+            position: relative;
+            width : 100px;
+            top: 10%;
+            left: 75%;
+            height: 3px;
         }
         #StaminaShop{
             position: relative;
@@ -76,17 +77,17 @@
             height: 30px;
             color:white!important;
             background-color:gray;
-            }
+        }
         #stamina{
-          	position : relative;
-          	top : 0%;
+            position : relative;
+            top : 0%;
             left : 0%;
             height: 30px;
             background-color: green;
         }
         #staamt{
             position : relative;
-          	top : 0px;
+            top : 0px;
             width : 400px;
             left : 0px;
         }
@@ -96,52 +97,81 @@
     </style>
 </head>
 
-
 <div>
     <div id="StaminaShop">
         <input type="button" value="Stamina Shop" onclick="openShop()"><br>
 
-</div>
-<audio id="myAudio" autoplay="autoplay">
-    <source src = "Electro.mp3">
-</audio>
+    </div>
 
-<button type="button" onclick="aud_play_pause()" style="position: absolute; right:300px">ON/OFF</button>
+
+    <div>
+        <p style="position: absolute; right:200px; top:0;right:5%; font-size:14; font-family:Calibri"> Rank:</p>
+    </div>
+
+    <div>
+        <p id="rank" style="position: absolute;right:200px; top:0; right:4%; font-size:14; font-family:Calibri"> S </p>
+    </div>
+
+    <!-- here is the code for rank in html -->
+
+
+    <audio id="myAudio" autoplay="autoplay" controls = "controls" style="position: absolute; right:300px">
+        <source src = "twoMusic1.mp3">
+    </audio>
+
+
+
+
+
+    <button type="button" onclick="aud_play_pause()" style="position: absolute; right:200px">ON/OFF</button>
+
+
+
+    <body>
+
     
-<body>
-    
+
+ 
+<body background="images/06.jpg"> </body>
+
+
     <div class="container">
-        <h1>GoHomeBulls</h1>
+        <h1><span style="color:  #ffffff;">GoHomeBulls</span></h1>
+
         <div id="game">
             <canvas id="canvas" width="400" height="400"></canvas>
         </div>
         <div id="HallofFame">
-                <a target = "_blank" href="HallOfFame.html">Hall of Fame</a>
+            <a target = "_blank" href="HallOfFame.html">Hall of Fame</a>
         </div>
         <div id="help">
 
-            <h3>HELP：</h3>
-            <p>
+            <h3><span style="color: #ffffff;">HELP：</span></h3>
+            <p><span style="color: #ffffff;">
                 s - Start the game<br>
                 r - Reset the game<br>
                 e - Map editing page <br>
                 c - Save the edited map <br>
                 z - Reset the edited map <br>
                 x - Quit map editing page <br>
-
+                </span>
             </p>
-            <p>Press（↑ ← ↓ →）control the bulls</p>
+            <p><span style="color: #ffffff;">Press（↑ ← ↓ →）control the bulls</span></p>
             <p></p>
-            <h4>Some more instructions</h4>
+            <h4><span style="color: #ffffff;">Some more instructions</span></h4>
             <p>
-                Count of moves : <div id = "count" style = "width:15px">0</div> <br>
-                Dinning Dollars: <div id = "Dinings" style = "width:15px">0</div ><br>
+                <span style="color: #ffffff;">
+                Count of moves :</span> <div id = "count" style = "color: #ffffff;">0</div> <br>
+            <span style="color: #ffffff;">
+                Dinning Dollars:</span> <div id = "Dinings" style ="color: #ffffff;">0</div ><br>
+            <span style="color: #ffffff;">
                 r - Restart<br>
+                </span>
             </p>
         </div>
         <div id = "actionbar-light-grey" style="height:24px;width:400px">
             <div id = "stamina" style="height:24px;width:400px">
-                    <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>            
+                <p id = "staamt"><span id = "demo" class="actionbar-light-gray" style="width:400px">100</span> %</p>
             </div>
 
         </div>
@@ -149,18 +179,15 @@
         <script>
             function aud_play_pause() {
                 var myAudio = document.getElementById("myAudio");
-
                 if (myAudio.paused) {
                     myAudio.play();
-
                 } else {
                     myAudio.pause();
                 }
             }
-
             _main('#canvas', 400, 400)
         </script>
     </div>
 
-</body>
+    </body>
 </html>

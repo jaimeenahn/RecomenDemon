@@ -1,0 +1,13 @@
+Meeting date and time: 1:00 - 2:00 PM, May 3, 2018
+Meeting attendance: 
+
+Everybody is presented.
+
+Summary
+*. Official release preparing
+
+
+Until today
+##Everyone should be familiar with javascript.
+
+Meet at 7pm to finalize official release
