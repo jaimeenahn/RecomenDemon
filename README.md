@@ -3,12 +3,11 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/goHomeBulls/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ##Landing Page
-https://buffalo.edu/~jahn5
+https://jaimeenahn.github.io/goHomeBulls/
 
 ##How to run?
 
-1. please visit https://buffalo.edu/~jahn5
-
+1. please visit https://jaimeenahn.github.io/goHomeBulls/
 2. press the "Start Now"
 
 3. press "s" to start game
