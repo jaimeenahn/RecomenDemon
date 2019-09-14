@@ -2,12 +2,14 @@
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/goHomeBulls/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-##Landing Page
+## Landing Page
+
 https://jaimeenahn.github.io/goHomeBulls/
 
-##How to run?
+## How to run?
 
 1. please visit https://jaimeenahn.github.io/goHomeBulls/
+
 2. press the "Start Now"
 
 3. press "s" to start game
@@ -40,7 +42,7 @@ Therefore, maintaining stamina is the key.
 
 ***
 
-##Add-On Features
+## Add-On Features
 1. Scoreboard
 	- For each stages, the game will count every steps of the player
 	- The ranks(S, A, B, C) will be given depends on how many steps the user uses : smaller is better
@@ -59,7 +61,7 @@ Therefore, maintaining stamina is the key.
 
 ***
 
-##User Story
+## User Story
 
 Our users are going to use this application to kill their time.
 In other words, as a user, I want to play simple games related to UB so that we can entertain .
